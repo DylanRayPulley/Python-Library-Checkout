@@ -1,0 +1,22 @@
+name: Pyhton CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+  
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install uv, etc..
+        run: |
+          python -m pip install --upgrade pip uv
+          uv sync
+      - run: uv run -m pytest
+      - run: uv run ruff check . src tests
