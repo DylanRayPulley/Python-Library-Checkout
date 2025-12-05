@@ -14,9 +14,10 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install uv, etc..
-        run: |
-          python -m pip install --upgrade pip uv
-          uv sync
-      - run: uv run -m pytest
-      - run: uv run ruff check . src tests
+      - name: Install pytest
+        run: pip install pytest
+      
+      - name: Run tests
+        run: pytest
+        
+      
