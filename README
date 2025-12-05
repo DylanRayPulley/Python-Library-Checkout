@@ -1,1 +1,16 @@
-TEST
+Encapsulation
+  Member and Catalog do not expose their internal collections directly.
+  Borrowed items and catalog items can only be modified through the methods borrow, return_item, add, and get.
+
+Use of Inheritance
+  Book and Dvd both inherit from the Item base class.
+  They share common behavior but have individual days_allowed values to provide different loan limits.
+
+Use of Composition
+  Catalog has a collection of Item objects.
+  Member has a collection of borrowed item IDs.
+  Both classes manage these internal lists rather than exposing them.
+
+Polymorphism
+  Any subclass of Item can be treated as an Item.
+  The program can call item.days_allowed() without knowing whether the object is a Book or a Dvd.
