@@ -1,20 +1,28 @@
 class Id:
-    def __init__(self):
-        pass
+    def __init__(self, value):
+        self.value = value
+    
+    def __str__(self):
+        return self.value
 
-    def something(self):
-        pass
+class Item():
+    def __init__(self, id, title):
+        self.id = id
+        self.title = title
 
-class Book(Id):
-    def __init__(self):
-        pass
+    def days_allowed(self):
+        raise NotImplementedError
 
-    def something(self):
-        pass
+class Book(Item):
+    def __init__(self, id, title):
+        super().__init__(id, title)
+    
+    def days_allowed(self):
+        return 10
 
-class Dvd(Id):
-    def __init__(self):
-        pass
-
-    def something(self):
-        pass
+class Dvd(Item):
+    def __init__(self, id, title):
+        super().__init__(id, title)
+    
+    def days_allowed(self):
+        return 7
